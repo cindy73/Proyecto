@@ -24,6 +24,7 @@ class EquipoController extends Controller
             return view('paginas.equipo');
 
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -34,6 +35,7 @@ class EquipoController extends Controller
     {
         //
     }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -100,16 +102,24 @@ class EquipoController extends Controller
                 $cont= count($v);
                 if($cont!=0){
                     return back()->with("mensaje","existe");
+                }else{
+                    $datos->nombre_equipo=$request->nombredelequipoE;
+                    $datos->fecha_creacion=$request->fechacreacionE;
+                    if($datos->update()){
+                        return back()->with("mensaje","editado");
+                    }else{
+                        return back()->with("mensaje","Noeditado");
+                    }
                 }
             }else{
-                $datos->nombre_equipo=$request->nombredelequipoE;
-                $datos->fecha_creacion=$request->fechacreacionE;
-                if($datos->update()){
-                    return back()->with("mensaje","editado");
-                }else{
-                    return back()->with("mensaje","Noeditado");
+                    $datos->nombre_equipo=$request->nombredelequipoE;
+                    $datos->fecha_creacion=$request->fechacreacionE;
+                    if($datos->update()){
+                        return back()->with("mensaje","editado");
+                    }else{
+                        return back()->with("mensaje","Noeditado");
+                    }
                 }
-            }
             
         }
         

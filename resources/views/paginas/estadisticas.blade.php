@@ -166,7 +166,8 @@
       <div class="col-md-6">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Tabla de posiciones</h4>
+            <h4 class="card-title" style=" display: inline-block;">Tabla de posiciones </h4>
+                <a href="/reportesPosiciones" target="_blank" class="btn btn-primary btn-round" style=" display: inline-block; margin-left:45px;">Generar reporte</a>
           </div>
           <div class="card-body">
             <table style="text-align: center;" id="datatable" class="table table-striped table-bordered" >
@@ -198,7 +199,8 @@
       <div class="col-md-6">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Tabla de goleadores</h4>
+            <h4 class="card-title" style=" display: inline-block;">Tabla de goleadores</h4>
+            <a href="/reportesGoles" target="_blank" class="btn btn-primary btn-round" style=" display: inline-block; margin-left:45px;">Generar reporte</a>
           </div>
           <div class="card-body">
             <table style="text-align: center;" id="datatable" class="table table-striped table-bordered" >

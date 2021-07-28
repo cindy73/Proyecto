@@ -37,6 +37,10 @@ Route::get('golesG','GoleController@guardarGoles')->name('golesG');
 Route::get('eliminarE/{id}','EncuentroController@EliminarEncuentro');
 Route::get('modalEncuentro/{id}','EncuentroController@CargarDatosModal');
 
+//RUTAS DE REPORTES
+Route::get('reportesGoles','PDFController@tablaGoleadores');
+Route::get('reportesPosiciones','PDFController@tablaPosiciones');
+
 Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

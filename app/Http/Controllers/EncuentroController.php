@@ -45,7 +45,7 @@ class EncuentroController extends Controller
      */
     public function store(Request $request)
     {
-       $encuentro = Encuentro::where("id_equipo1",$request->local)
+        $encuentro = Encuentro::where("id_equipo1",$request->local)
                                 ->where("id_equipo2",$request->visitante)
                                 ->where("fecha",$request->fechaencuentro)
                                 ->get();
@@ -56,20 +56,28 @@ class EncuentroController extends Controller
         $local = Encuentro::where("id_equipo1",$request->local)
                                 ->where("fecha",$request->fechaencuentro)
                                 ->get();
+        $localReves = Encuentro::where("id_equipo1",$request->visitante)
+                                ->where("fecha",$request->fechaencuentro)
+                                ->get();
         $visitante = Encuentro::where("id_equipo2",$request->visitante)
+                                ->where("fecha",$request->fechaencuentro)
+                                ->get();
+        $visitanteReves = Encuentro::where("id_equipo2",$request->local)
                                 ->where("fecha",$request->fechaencuentro)
                                 ->get();
        $cont=count($encuentro);
        $cont1=count($encuentroReves);
        $cont2=count($local);
        $cont3=count($visitante);
+       $cont4=count($localReves);
+       $cont5=count($visitanteReves);
        if($cont!=0){
         return back()->with("mensaje","repetido");
        }else if($cont1 != 0){
         return back()->with("mensaje","repetido");
-       }else if($cont2 != 0){
+       }else if($cont2 != 0 ||  $cont5 != 0){
         return back()->with("mensaje","localR");
-       }else if($cont3 != 0){
+       }else if($cont3 != 0 ||  $cont4 != 0){
         return back()->with("mensaje","visitanteR");
        }else{
         if($request->local==$request->visitante){
